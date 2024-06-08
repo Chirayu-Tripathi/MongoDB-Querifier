@@ -1,0 +1,1508 @@
+db_id,db_schema
+trips,"{
+  ""collections"": [
+    {
+      ""name"": ""trips"",
+      ""indexes"": [
+        {
+          ""key"": {
+            ""_id"": 1
+          }
+        }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": {
+            ""bsonType"": ""objectId""
+          },
+          ""tripduration"": {
+            ""bsonType"": ""int""
+          },
+          ""start_station_id"": {
+            ""bsonType"": ""int""
+          },
+          ""start_station_name"": {
+            ""bsonType"": ""string""
+          },
+          ""end_station_id"": {
+            ""bsonType"": ""int""
+          },
+          ""end_station_name"": {
+            ""bsonType"": ""string""
+          },
+          ""bikeid"": {
+            ""bsonType"": ""int""
+          },
+          ""usertype"": {
+            ""bsonType"": ""string""
+          },
+          ""birth_year"": {
+            ""bsonType"": ""int""
+          },
+          ""gender"": {
+            ""bsonType"": ""int""
+          },
+          ""start_station_location"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""type"": {
+                ""bsonType"": ""string"",
+                ""enum"": [""Point""]
+              },
+              ""coordinates"": {
+                ""bsonType"": ""array"",
+                ""items"": {
+                  ""bsonType"": ""double""
+                }
+              }
+            }
+          },
+          ""end_station_location"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""type"": {
+                ""bsonType"": ""string"",
+                ""enum"": [""Point""]
+              },
+              ""coordinates"": {
+                ""bsonType"": ""array"",
+                ""items"": {
+                  ""bsonType"": ""double""
+                }
+              }
+            }
+          },
+          ""start_time"": {
+            ""bsonType"": ""date""
+          },
+          ""stop_time"": {
+            ""bsonType"": ""date""
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+companies,"{
+  ""collections"": [
+    {
+      ""name"": ""companies"",
+      ""indexes"": [
+        { ""key"": { ""_id"": 1 } },
+        { ""key"": { ""name"": 1 } },
+        { ""key"": { ""permalink"": 1 } },
+        { ""key"": { ""crunchbase_url"": 1 } }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": { ""bsonType"": ""objectId"" },
+          ""name"": { ""bsonType"": ""string"" },
+          ""permalink"": { ""bsonType"": ""string"" },
+          ""crunchbase_url"": { ""bsonType"": ""string"" },
+          ""homepage_url"": { ""bsonType"": ""string"" },
+          ""blog_url"": { ""bsonType"": ""string"" },
+          ""blog_feed_url"": { ""bsonType"": ""string"" },
+          ""twitter_username"": { ""bsonType"": ""string"" },
+          ""category_code"": { ""bsonType"": ""string"" },
+          ""number_of_employees"": { ""bsonType"": ""int"" },
+          ""founded_year"": { ""bsonType"": ""int"" },
+          ""founded_month"": { ""bsonType"": ""int"" },
+          ""founded_day"": { ""bsonType"": ""int"" },
+          ""deadpooled_year"": { ""bsonType"": ""int"" },
+          ""deadpooled_month"": { ""bsonType"": ""int"" },
+          ""deadpooled_day"": { ""bsonType"": ""int"" },
+          ""deadpooled_url"": { ""bsonType"": ""string"" },
+          ""tag_list"": { ""bsonType"": ""string"" },
+          ""alias_list"": { ""bsonType"": ""string"" },
+          ""email_address"": { ""bsonType"": ""string"" },
+          ""phone_number"": { ""bsonType"": ""string"" },
+          ""description"": { ""bsonType"": ""string"" },
+          ""created_at"": { ""bsonType"": ""date"" },
+          ""updated_at"": { ""bsonType"": ""date"" },
+          ""overview"": { ""bsonType"": ""string"" },
+          ""image"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""available_sizes"": {
+                ""bsonType"": ""array"",
+                ""items"": {
+                  ""bsonType"": ""array"",
+                  ""items"": [
+                    { ""bsonType"": ""int"" },
+                    { ""bsonType"": ""int"" },
+                    { ""bsonType"": ""string"" }
+                  ]
+                }
+              },
+              ""attribution"": { ""bsonType"": ""string"" }
+            }
+          },
+          ""products"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""object"",
+              ""properties"": {
+                ""name"": { ""bsonType"": ""string"" },
+                ""permalink"": { ""bsonType"": ""string"" }
+              }
+            }
+          },
+          ""relationships"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""object"",
+              ""properties"": {
+                ""is_past"": { ""bsonType"": ""bool"" },
+                ""title"": { ""bsonType"": ""string"" },
+                ""person"": {
+                  ""bsonType"": ""object"",
+                  ""properties"": {
+                    ""first_name"": { ""bsonType"": ""string"" },
+                    ""last_name"": { ""bsonType"": ""string"" },
+                    ""permalink"": { ""bsonType"": ""string"" }
+                  }
+                }
+              }
+            }
+          },
+          ""competitions"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""object"",
+              ""properties"": {
+                ""competitor"": {
+                  ""bsonType"": ""object"",
+                  ""properties"": {
+                    ""name"": { ""bsonType"": ""string"" },
+                    ""permalink"": { ""bsonType"": ""string"" }
+                  }
+                }
+              }
+            }
+          },
+          ""offices"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""object"",
+              ""properties"": {
+                ""description"": { ""bsonType"": ""string"" },
+                ""address1"": { ""bsonType"": ""string"" },
+                ""address2"": { ""bsonType"": ""string"" },
+                ""zip_code"": { ""bsonType"": ""string"" },
+                ""city"": { ""bsonType"": ""string"" },
+                ""state_code"": { ""bsonType"": ""string"" },
+                ""country_code"": { ""bsonType"": ""string"" },
+                ""latitude"": { ""bsonType"": ""double"" },
+                ""longitude"": { ""bsonType"": ""double"" }
+              }
+            }
+          },
+          ""total_money_raised"": { ""bsonType"": ""string"" }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+grades,"{
+  ""collections"": [
+    {
+      ""name"": ""grades"",
+      ""indexes"": [
+        {
+          ""key"": {
+            ""_id"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""student_id"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""class_id"": 1
+          }
+        }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": {
+            ""bsonType"": ""objectId""
+          },
+          ""student_id"": {
+            ""bsonType"": ""int""
+          },
+          ""scores"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""object"",
+              ""properties"": {
+                ""type"": {
+                  ""bsonType"": ""string""
+                },
+                ""score"": {
+                  ""bsonType"": ""double""
+                }
+              }
+            }
+          },
+          ""class_id"": {
+            ""bsonType"": ""int""
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+restaurants,"{
+  ""collections"": [
+    {
+      ""name"": ""restaurants"",
+      ""indexes"": [
+        {
+          ""key"": {
+            ""_id"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""name"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""borough"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""cuisine"": 1
+          }
+        }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": {
+            ""bsonType"": ""objectId""
+          },
+          ""address"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""building"": {
+                ""bsonType"": ""string""
+              },
+              ""coord"": {
+                ""bsonType"": ""array"",
+                ""items"": {
+                  ""bsonType"": ""double""
+                }
+              },
+              ""street"": {
+                ""bsonType"": ""string""
+              },
+              ""zipcode"": {
+                ""bsonType"": ""string""
+              },
+              ""borough"": {
+                ""bsonType"": ""string""
+              }
+            }
+          },
+          ""grades"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""object"",
+              ""properties"": {
+                ""date"": {
+                  ""bsonType"": ""date""
+                },
+                ""grade"": {
+                  ""bsonType"": ""string""
+                },
+                ""score"": {
+                  ""bsonType"": ""int""
+                }
+              }
+            }
+          },
+          ""name"": {
+            ""bsonType"": ""string""
+          },
+          ""restaurant_id"": {
+            ""bsonType"": ""string""
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+movies,"{
+  ""collections"": [
+    {
+      ""name"": ""movies"",
+      ""indexes"": [
+        {
+          ""key"": {
+            ""_id"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""title"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""year"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""genres"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""rated"": 1
+          }
+        }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": {
+            ""bsonType"": ""objectId""
+          },
+          ""plot"": {
+            ""bsonType"": ""string""
+          },
+          ""genres"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          },
+          ""runtime"": {
+            ""bsonType"": ""int""
+          },
+          ""rated"": {
+            ""bsonType"": ""string""
+          },
+          ""title"": {
+            ""bsonType"": ""string""
+          },
+          ""num_mflix_comments"": {
+            ""bsonType"": ""int""
+          },
+          ""poster"": {
+            ""bsonType"": ""string""
+          },
+          ""countries"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          },
+          ""fullplot"": {
+            ""bsonType"": ""string""
+          },
+          ""languages"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          },
+          ""cast"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          },
+          ""directors"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          },
+          ""writers"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          },
+          ""awards"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""wins"": {
+                ""bsonType"": ""int""
+              },
+              ""nominations"": {
+                ""bsonType"": ""int""
+              },
+              ""text"": {
+                ""bsonType"": ""string""
+              },
+              ""lastupdated"": {
+                ""bsonType"": ""string""
+              }
+            }
+          },
+          ""year"": {
+            ""bsonType"": ""int""
+          },
+          ""imdb"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""rating"": {
+                ""bsonType"": ""double""
+              },
+              ""votes"": {
+                ""bsonType"": ""int""
+              },
+              ""id"": {
+                ""bsonType"": ""int""
+              },
+              ""type"": {
+                ""bsonType"": ""string""
+              }
+            }
+          },
+          ""tomatoes"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""viewer"": {
+                ""bsonType"": ""object"",
+                ""properties"": {
+                  ""rating"": {
+                    ""bsonType"": ""double""
+                  },
+                  ""numReviews"": {
+                    ""bsonType"": ""int""
+                  },
+                  ""meter"": {
+                    ""bsonType"": ""int""
+                  },
+                  ""dvd"": {
+                    ""bsonType"": ""date""
+                  }
+                }
+              },
+              ""critic"": {
+                ""bsonType"": ""object"",
+                ""properties"": {
+                  ""rating"": {
+                    ""bsonType"": ""double""
+                  },
+                  ""numReviews"": {
+                    ""bsonType"": ""int""
+                  },
+                  ""meter"": {
+                    ""bsonType"": ""int""
+                  },
+                  ""lastUpdated"": {
+                    ""bsonType"": ""date""
+                  },
+                  ""rotten"": {
+                    ""bsonType"": ""int""
+                  },
+                  ""production"": {
+                    ""bsonType"": ""string""
+                  },
+                  ""fresh"": {
+                    ""bsonType"": ""int""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+theaters,"{
+  ""collections"": [
+    {
+      ""name"": ""theaters"",
+      ""indexes"": [
+        {
+          ""key"": {
+            ""_id"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""theaterId"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""location.geo"": ""2dsphere""
+          }
+        }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": {
+            ""bsonType"": ""objectId""
+          },
+          ""theaterId"": {
+            ""bsonType"": ""int""
+          },
+          ""location"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""address"": {
+                ""bsonType"": ""object"",
+                ""properties"": {
+                  ""street1"": {
+                    ""bsonType"": ""string""
+                  },
+                  ""city"": {
+                    ""bsonType"": ""string""
+                  },
+                  ""state"": {
+                    ""bsonType"": ""string""
+                  },
+                  ""zipcode"": {
+                    ""bsonType"": ""string""
+                  }
+                }
+              },
+              ""geo"": {
+                ""bsonType"": ""object"",
+                ""properties"": {
+                  ""type"": {
+                    ""bsonType"": ""string""
+                  },
+                  ""coordinates"": {
+                    ""bsonType"": ""array"",
+                    ""items"": {
+                      ""bsonType"": ""double""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+customers,"{
+  ""collections"": [
+    {
+      ""name"": ""customers"",
+      ""indexes"": [
+        {
+          ""key"": {
+            ""_id"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""username"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""email"": 1
+          }
+        }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": {
+            ""bsonType"": ""objectId""
+          },
+          ""username"": {
+            ""bsonType"": ""string""
+          },
+          ""name"": {
+            ""bsonType"": ""string""
+          },
+          ""address"": {
+            ""bsonType"": ""string""
+          },
+          ""birthdate"": {
+            ""bsonType"": ""date""
+          },
+          ""email"": {
+            ""bsonType"": ""string""
+          },
+          ""accounts"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""int""
+            }
+          },
+          ""tier_and_details"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""tier"": {
+                ""bsonType"": ""string""
+              },
+              ""benefits"": {
+                ""bsonType"": ""array"",
+                ""items"": {
+                  ""bsonType"": ""string""
+                }
+              },
+              ""active"": {
+                ""bsonType"": ""bool""
+              },
+              ""id"": {
+                ""bsonType"": ""string""
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+transactions,"{
+  ""collections"": [
+    {
+      ""name"": ""transactions"",
+      ""indexes"": [
+        {
+          ""key"": {
+            ""_id"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""account_id"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""bucket_start_date"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""bucket_end_date"": 1
+          }
+        }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": {
+            ""bsonType"": ""objectId""
+          },
+          ""account_id"": {
+            ""bsonType"": ""int""
+          },
+          ""transaction_count"": {
+            ""bsonType"": ""int""
+          },
+          ""bucket_start_date"": {
+            ""bsonType"": ""date""
+          },
+          ""bucket_end_date"": {
+            ""bsonType"": ""date""
+          },
+          ""transactions"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""object"",
+              ""properties"": {
+                ""date"": {
+                  ""bsonType"": ""date""
+                },
+                ""amount"": {
+                  ""bsonType"": ""int""
+                },
+                ""transaction_code"": {
+                  ""bsonType"": ""string""
+                },
+                ""symbol"": {
+                  ""bsonType"": ""string""
+                },
+                ""price"": {
+                  ""bsonType"": ""string""
+                },
+                ""total"": {
+                  ""bsonType"": ""string""
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+trades,"{
+  ""collections"": [
+    {
+      ""name"": ""trades"",
+      ""indexes"": [
+        {
+          ""key"": {
+            ""_id"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""ticker"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""time"": 1
+          }
+        }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": {
+            ""bsonType"": ""objectId""
+          },
+          ""details"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""asks"": {
+                ""bsonType"": ""array"",
+                ""items"": {
+                  ""bsonType"": ""double""
+                }
+              },
+              ""bids"": {
+                ""bsonType"": ""array"",
+                ""items"": {
+                  ""bsonType"": ""double""
+                }
+              },
+              ""lag"": {
+                ""bsonType"": ""int""
+              },
+              ""system"": {
+                ""bsonType"": ""string""
+              }
+            }
+          },
+          ""price"": {
+            ""bsonType"": ""double""
+          },
+          ""shares"": {
+            ""bsonType"": ""int""
+          },
+          ""ticker"": {
+            ""bsonType"": ""string""
+          },
+          ""ticket"": {
+            ""bsonType"": ""string""
+          },
+          ""time"": {
+            ""bsonType"": ""date""
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+weather,"{
+  ""collections"": [
+    {
+      ""name"": ""weather"",
+      ""indexes"": [
+        {
+          ""key"": {
+            ""_id"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""st"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""ts"": 1
+          }
+        }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": {
+            ""bsonType"": ""objectId""
+          },
+          ""st"": {
+            ""bsonType"": ""string""
+          },
+          ""ts"": {
+            ""bsonType"": ""date""
+          },
+          ""position"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""type"": {
+                ""bsonType"": ""string""
+              },
+              ""coordinates"": {
+                ""bsonType"": ""array"",
+                ""items"": {
+                  ""bsonType"": ""double""
+                }
+              },
+              ""elevation"": {
+                ""bsonType"": ""int""
+              }
+            }
+          },
+          ""callLetters"": {
+            ""bsonType"": ""string""
+          },
+          ""qualityControlProcess"": {
+            ""bsonType"": ""string""
+          },
+          ""dataSource"": {
+            ""bsonType"": ""string""
+          },
+          ""type"": {
+            ""bsonType"": ""string""
+          },
+          ""airTemperature"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""value"": {
+                ""bsonType"": ""double""
+              },
+              ""quality"": {
+                ""bsonType"": ""string""
+              }
+            }
+          },
+          ""dewPoint"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""value"": {
+                ""bsonType"": ""double""
+              },
+              ""quality"": {
+                ""bsonType"": ""string""
+              }
+            }
+          },
+          ""pressure"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""value"": {
+                ""bsonType"": ""double""
+              },
+              ""quality"": {
+                ""bsonType"": ""string""
+              }
+            }
+          },
+          ""wind"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""direction"": {
+                ""bsonType"": ""object"",
+                ""properties"": {
+                  ""angle"": {
+                    ""bsonType"": ""int""
+                  },
+                  ""quality"": {
+                    ""bsonType"": ""string""
+                  }
+                }
+              },
+              ""speed"": {
+                ""bsonType"": ""object"",
+                ""properties"": {
+                  ""rate"": {
+                    ""bsonType"": ""double""
+                  },
+                  ""quality"": {
+                    ""bsonType"": ""string""
+                  }
+                }
+              }
+            }
+          },
+          ""visibility"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""distance"": {
+                ""bsonType"": ""object"",
+                ""properties"": {
+                  ""value"": {
+                    ""bsonType"": ""double""
+                  },
+                  ""quality"": {
+                    ""bsonType"": ""string""
+                  }
+                }
+              }
+            }
+          },
+          ""variability"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""value"": {
+                ""bsonType"": ""string""
+              },
+              ""quality"": {
+                ""bsonType"": ""string""
+              }
+            }
+          },
+          ""skyCondition"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""ceilingHeight"": {
+                ""bsonType"": ""object"",
+                ""properties"": {
+                  ""value"": {
+                    ""bsonType"": ""int""
+                  },
+                  ""quality"": {
+                    ""bsonType"": ""string""
+                  },
+                  ""determination"": {
+                    ""bsonType"": ""string""
+                  },
+                  ""cavok"": {
+                    ""bsonType"": ""string""
+                  }
+                }
+              }
+            }
+          },
+          ""sections"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          },
+          ""precipitationEstimatedObservation"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""discrepancy"": {
+                ""bsonType"": ""string""
+              },
+              ""estimatedWaterDepth"": {
+                ""bsonType"": ""double""
+              }
+            }
+          },
+          ""pastWeatherObservationManual"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""object"",
+              ""properties"": {
+                ""atmosphericCondition"": {
+                  ""bsonType"": ""object"",
+                  ""properties"": {
+                    ""value"": {
+                      ""bsonType"": ""string""
+                    },
+                    ""quality"": {
+                      ""bsonType"": ""string""
+                    }
+                  }
+                },
+                ""period"": {
+                  ""bsonType"": ""object"",
+                  ""properties"": {
+                    ""value"": {
+                      ""bsonType"": ""int""
+                    },
+                    ""quality"": {
+                      ""bsonType"": ""string""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+students,"{
+  ""collections"": [
+    {
+      ""name"": ""students"",
+      ""indexes"": [
+        {
+          ""key"": {
+            ""_id"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""name"": 1
+          }
+        }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": {
+            ""bsonType"": ""int""
+          },
+          ""name"": {
+            ""bsonType"": ""string""
+          },
+          ""scores"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""object"",
+              ""properties"": {
+                ""score"": {
+                  ""bsonType"": ""double""
+                },
+                ""type"": {
+                  ""bsonType"": ""string""
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+images,"{
+  ""collections"": [
+    {
+      ""name"": ""images"",
+      ""indexes"": [
+        {
+          ""key"": {
+            ""_id"": 1
+          }
+        }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": {
+            ""bsonType"": ""int""
+          },
+          ""height"": {
+            ""bsonType"": ""int""
+          },
+          ""width"": {
+            ""bsonType"": ""int""
+          },
+          ""tags"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+profiles,"{
+  ""collections"": [
+    {
+      ""name"": ""profiles"",
+      ""indexes"": [
+        {
+          ""key"": {
+            ""_id"": 1
+          }
+        }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": {
+            ""bsonType"": ""objectId""
+          },
+          ""client"": {
+            ""bsonType"": ""string""
+          },
+          ""keyUpdates"": {
+            ""bsonType"": ""int""
+          },
+          ""lockStats"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""timeAcquiringMicros"": {
+                ""bsonType"": ""object"",
+                ""properties"": {
+                  ""r"": {
+                    ""bsonType"": ""double""
+                  },
+                  ""w"": {
+                    ""bsonType"": ""double""
+                  }
+                }
+              },
+              ""timeLockedMicros"": {
+                ""bsonType"": ""object"",
+                ""properties"": {
+                  ""r"": {
+                    ""bsonType"": ""double""
+                  },
+                  ""w"": {
+                    ""bsonType"": ""double""
+                  }
+                }
+              }
+            }
+          },
+          ""millis"": {
+            ""bsonType"": ""int""
+          },
+          ""ns"": {
+            ""bsonType"": ""string""
+          },
+          ""numYield"": {
+            ""bsonType"": ""int""
+          },
+          ""op"": {
+            ""bsonType"": ""string""
+          },
+          ""ts"": {
+            ""bsonType"": ""date""
+          },
+          ""user"": {
+            ""bsonType"": ""string""
+          },
+          ""nreturned"": {
+            ""bsonType"": ""int""
+          },
+          ""nscanned"": {
+            ""bsonType"": ""double""
+          },
+          ""ntoreturn"": {
+            ""bsonType"": ""int""
+          },
+          ""ntoskip"": {
+            ""bsonType"": ""int""
+          },
+          ""query"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""student_id"": {
+                ""bsonType"": ""int""
+              }
+            }
+          },
+          ""responseLength"": {
+            ""bsonType"": ""int""
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+countries,"{
+  ""collections"": [
+    {
+      ""name"": ""countries"",
+      ""indexes"": [
+        {
+          ""key"": {
+            ""_id"": 1
+          }
+        }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": {
+            ""bsonType"": ""objectId""
+          },
+          ""altSpellings"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          },
+          ""area"": {
+            ""bsonType"": ""double""
+          },
+          ""borders"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          },
+          ""callingCode"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          },
+          ""capital"": {
+            ""bsonType"": ""string""
+          },
+          ""cca2"": {
+            ""bsonType"": ""string""
+          },
+          ""cca3"": {
+            ""bsonType"": ""string""
+          },
+          ""ccn3"": {
+            ""bsonType"": ""string""
+          },
+          ""cioc"": {
+            ""bsonType"": ""string""
+          },
+          ""currency"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          },
+          ""demonym"": {
+            ""bsonType"": ""string""
+          },
+          ""landlocked"": {
+            ""bsonType"": ""bool""
+          },
+          ""latlng"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""double""
+            }
+          },
+          ""name"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""common"": {
+                ""bsonType"": ""string""
+              }
+            }
+          },
+          ""region"": {
+            ""bsonType"": ""string""
+          },
+          ""subregion"": {
+            ""bsonType"": ""string""
+          },
+          ""tld"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+books,"{
+  ""collections"": [
+    {
+      ""name"": ""books"",
+      ""indexes"": [
+        {
+          ""key"": {
+            ""_id"": 1
+          }
+        },
+        {
+          ""key"": {
+            ""isbn"": 1
+          },
+          ""unique"": true
+        }
+      ],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""_id"": {
+            ""bsonType"": ""int""
+          },
+          ""title"": {
+            ""bsonType"": ""string""
+          },
+          ""isbn"": {
+            ""bsonType"": ""string""
+          },
+          ""pageCount"": {
+            ""bsonType"": ""int""
+          },
+          ""publishedDate"": {
+            ""bsonType"": ""date""
+          },
+          ""thumbnailUrl"": {
+            ""bsonType"": ""string""
+          },
+          ""shortDescription"": {
+            ""bsonType"": ""string""
+          },
+          ""longDescription"": {
+            ""bsonType"": ""string""
+          },
+          ""status"": {
+            ""bsonType"": ""string""
+          },
+          ""authors"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          },
+          ""categories"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+users,"{
+  ""collections"": [
+    {
+      ""name"": ""users"",
+      ""indexes"": [],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""first_name"": {
+            ""bsonType"": ""string""
+          },
+          ""last_name"": {
+            ""bsonType"": ""string""
+          },
+          ""email"": {
+            ""bsonType"": ""string""
+          },
+          ""gender"": {
+            ""bsonType"": ""string""
+          },
+          ""address"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""city"": {
+                ""bsonType"": ""string""
+              },
+              ""state"": {
+                ""bsonType"": ""string""
+              },
+              ""country"": {
+                ""bsonType"": ""string""
+              },
+              ""country_code"": {
+                ""bsonType"": ""string""
+              }
+            }
+          },
+          ""card"": {
+            ""bsonType"": ""object"",
+            ""properties"": {
+              ""card_number"": {
+                ""bsonType"": ""string""
+              },
+              ""card_type"": {
+                ""bsonType"": ""string""
+              },
+              ""currency_code"": {
+                ""bsonType"": ""string""
+              },
+              ""balance"": {
+                ""bsonType"": ""string""
+              }
+            }
+          },
+          ""married_status"": {
+            ""bsonType"": ""bool""
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
+children,"{
+  ""collections"": [
+    {
+      ""name"": ""children"",
+      ""indexes"": [],
+      ""uniqueIndexes"": [],
+      ""document"": {
+        ""properties"": {
+          ""first_name"": {
+            ""bsonType"": ""string""
+          },
+          ""last_name"": {
+            ""bsonType"": ""string""
+          },
+          ""class"": {
+            ""bsonType"": ""int""
+          },
+          ""gender"": {
+            ""bsonType"": ""string""
+          },
+          ""dob"": {
+            ""bsonType"": ""date""
+          },
+          ""school_joining_date"": {
+            ""bsonType"": ""date""
+          },
+          ""loveMaths"": {
+            ""bsonType"": ""bool""
+          },
+          ""friends"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""object"",
+              ""properties"": {
+                ""gender"": {
+                  ""bsonType"": ""string""
+                },
+                ""name"": {
+                  ""bsonType"": ""string""
+                },
+                ""luckyNumber"": {
+                  ""bsonType"": ""int""
+                }
+              }
+            }
+          },
+          ""favCity"": {
+            ""bsonType"": ""array"",
+            ""items"": {
+              ""bsonType"": ""string""
+            }
+          }
+        }
+      }
+    }
+  ],
+  ""version"": 1
+}"
