@@ -1,4 +1,8 @@
 # MongoDB-Querifier
+<p align="center">
+<img src="images/workflow.png?raw=true" alt="GPT-Architecture" width="800"/>
+</p>
+
 Improve LLMs MongoDB query generation ability with the help of advanced retrieval augmented generation.
 This project demonstrates a sophisticated approach for improving the generated MongoDB queries from natural language questions using the Large Language Models. It leverages state-of-the-art technologies in natural language processing, vector databases, and advanced retrieval augmented generation to create an efficient and accurate query generation pipeline. It also showcases the use of Weaviate, an open-source vector database, for efficient retrieval of similar questions and their corresponding MongoDB queries.
 
@@ -84,3 +88,10 @@ Retrieval-Augmented Generation significantly improves query generation:
  * It adapts to the nuances of each question, leading to more accurate and efficient queries.
 
 In the provided example from the notebook, RAG correctly generates { $expr: { $gt: [{ $strLenCP: "$body" }, 50] } }, understanding that $strLenCP is needed for string length. Without RAG, it incorrectly uses { body: { $gt: 50 } }, treating body as a number instead of string.
+
+**Future Scope**
+Need to check how this method performs with LLMs fine-tuned on MongoDB question-answer pairs, test this proces on fine-tuned Phi-2 from [nl2query](https://github.com/Chirayu-Tripathi/nl2query)
+
+**License**
+
+This project is open-source and available under the MIT License.
