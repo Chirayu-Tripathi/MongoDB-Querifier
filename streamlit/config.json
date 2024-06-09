@@ -1,0 +1,39 @@
+{
+    "file_paths": {
+      "csv_path": "/content/drive/MyDrive/weavite/mongodb_array_object.csv",
+      "txt_path": "/content/drive/MyDrive/weavite/mongodb_array_object.txt"
+    },
+    "weaviate": {
+      "class_name": "MongoDB",
+      "properties": [
+        {
+          "name": "db_id",
+          "dataType": ["text"]
+        },
+        {
+          "name": "db_schema",
+          "dataType": ["text"]
+        },
+        {
+          "name": "question",
+          "dataType": ["text"]
+        },
+        {
+          "name": "gemini_mql",
+          "dataType": ["text"]
+        }
+      ]
+    },
+    "query_generation": {
+      "prompt_rag": "I will provide you with the schema for a MongoDB database, along with two examples of natural language questions and their corresponding MongoDB queries. Your task is to convert a new natural language question into a MongoDB query that will retrieve the requested information from the database.\n\nHere is the schema for the MongoDB database:\n\n<schema>\n{{SCHEMA}}\n</schema>\n\nHere are two examples to help guide you:\n\n<example1>\nSchema:\n{{EXAMPLE1_SCHEMA}}\n\nQuestion: {{EXAMPLE1_QUESTION}}\n\nQuery:\n{{EXAMPLE1_QUERY}}\n</example1>\n\n<example2>\nSchema:  \n{{EXAMPLE2_SCHEMA}}\n\nQuestion: {{EXAMPLE2_QUESTION}}\n\nQuery:\n{{EXAMPLE2_QUERY}}  \n</example2>\n\nNow, here is the new question to convert into a MongoDB query:\n\n<question>\n{{QUESTION}}\n</question>\n\nThink through how to construct the appropriate MongoDB query to answer this question based on the provided schema. Write out your thought process in a <scratchpad>. \n\nThen, provide the final MongoDB query inside <query> tags. The query should be syntactically correct and fully functional to retrieve the requested data from the database.\n\nRemember to only use the fields and structure defined in the provided schema. If the question cannot be answered by the information in the database, say so.",
+      "prompt_nonrag": "I will provide you with the schema for a MongoDB database. Your task is to convert a new natural language question into a MongoDB query that will retrieve the requested information from the database.\n\nHere is the schema for the MongoDB database:\n\n<schema>\n{{SCHEMA}}\n</schema>\n\nNow, here is the new question to convert into a MongoDB query:\n\n<question>\n{{QUESTION}}\n</question>\n\nThink through how to construct the appropriate MongoDB query to answer this question based on the provided schema. Write out your thought process in a <scratchpad>. \n\nThen, provide the final MongoDB query inside <query> tags. The query should be syntactically correct and fully functional to retrieve the requested data from the database.\n\nRemember to only use the fields and structure defined in the provided schema. If the question cannot be answered by the information in the database, say so."
+    },
+    "api_keys": {
+      "gemini_api_key": "your-gemini-api-key",
+      "weaviate_api_key": "your-weaviate-api-key"
+    },
+    "default_settings": {
+    "default_schema": {"collections": [{"name": "posts","indexes": [{"key": {"_id": 1}},{"key": {"permalink": 1}},{"key": {"author": 1}},{"key": {"title": 1}},{"key": {"tags": 1}},{"key": {"comments.date": 1}}],"uniqueIndexes": [],"document": {"properties": {"_id": {"bsonType": "string"},"body": {"bsonType": "string"},"permalink": {"bsonType": "string"},"author": {"bsonType": "string"},"title": {"bsonType": "string"},"tags": {"bsonType": "array","items": {"bsonType": "string"}},"comments": {"bsonType": "array","items": {"bsonType": "object","properties": {"body": {"bsonType": "string"},"email": {"bsonType": "string"},"author": {"bsonType": "string"},"date": {"bsonType": "date"}}}}}}}],"version": 1},
+    "default_question": "Find all the 'Sci-Fi' related posts written by Chirayu with post length longer than 50 characters"}
+  }
+  
