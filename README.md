@@ -72,6 +72,8 @@ python main.py
 
 3. The script will output the generated MongoDB query.
 
+4. You can also follow procedure described in the workflow notebook as it is easy to modify at run-time.
+
 **How It Works**
 
 1. Data Preprocessing: The DataProcessor class reads and cleans schema and query data, then generates embeddings for each question using a pre-trained sentence transformer model.
