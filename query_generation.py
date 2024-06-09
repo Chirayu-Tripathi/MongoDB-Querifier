@@ -3,11 +3,11 @@ import google.generativeai as genai
 
 
 class QueryGeneration:
-    def __init__(self, model, prompt):
+    def __init__(self, model):
         # Initialize the QueryGeneration class with a sentence transformer model and a prompt
         self.model = self.get_gemini_model()  # Get the Gemini model
         self.encoding_model = model  # Sentence transformer model for encoding questions
-        self.prompt = prompt  # Prompt template for query generation
+        # self.prompt = prompt  # Prompt template for query generation
         self.cross_encoder = CrossEncoder('BAAI/bge-reranker-base')  # Cross-encoder for re-ranking
 
     def get_gemini_model(self):
@@ -19,7 +19,7 @@ class QueryGeneration:
         model = genai.GenerativeModel('gemini-pro', safety_settings=safety_settings)
         return model
 
-    def generate_query(self, class_name, schema, question, db, rag=True):
+    def generate_query(self, class_name, schema, question, db, prompt, rag=True):
         # Generate a query based on the given class, schema, question, and database
         # rag: boolean to enable/disable Retrieval-Augmented Generation
 
@@ -53,13 +53,13 @@ class QueryGeneration:
             EXAMPLE2_SCHEMA, EXAMPLE2_QUESTION, EXAMPLE2_QUERY = example2['db_schema'], example2['question'], example2['gemini_mql']
 
             # Replace placeholders in the prompt with actual values
-            prompt = self.prompt.replace("{{SCHEMA}}", schema).replace("{{QUESTION}}", question)
+            prompt = prompt.replace("{{SCHEMA}}", schema).replace("{{QUESTION}}", question)
             prompt = prompt.replace("{{EXAMPLE1_SCHEMA}}", EXAMPLE1_SCHEMA).replace("{{EXAMPLE1_QUESTION}}", EXAMPLE1_QUESTION).replace("{{EXAMPLE1_QUERY}}", EXAMPLE1_QUERY)
             prompt = prompt.replace("{{EXAMPLE2_SCHEMA}}", EXAMPLE2_SCHEMA).replace("{{EXAMPLE2_QUESTION}}", EXAMPLE2_QUESTION).replace("{{EXAMPLE2_QUERY}}", EXAMPLE2_QUERY)
 
         else:
             # If RAG is disabled, just replace schema and question in the prompt
-            prompt = self.prompt.replace("{{SCHEMA}}", schema).replace("{{QUESTION}}", question)
+            prompt = prompt.replace("{{SCHEMA}}", schema).replace("{{QUESTION}}", question)
 
         # Generate content using the Gemini model with the constructed prompt
         return self.model.generate_content(prompt)

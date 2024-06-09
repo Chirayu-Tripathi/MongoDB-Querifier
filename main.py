@@ -42,7 +42,7 @@ def main(rag=True):
     # Initialize QueryGeneration with the sentence embedding model from the DataProcessor
     # Use different prompts based on whether RAG is enabled or not
     prompt = config['query_generation']['prompt_rag'] if rag else config['query_generation']['prompt_nonrag']
-    query_gen = QueryGeneration(processor.model, prompt)
+    query_gen = QueryGeneration(processor.model)
     
     # Define schemas for various data collections
     # These schemas describe the structure of MongoDB collections
@@ -64,7 +64,7 @@ def main(rag=True):
     question = 'Find all the "Sci-Fi" related posts written by Chirayu with post length longer than 50 characters'
     
     # Generate the query and get the result
-    result = query_gen.generate_query(class_name, schemas[schema], question, db_client, rag)
+    result = query_gen.generate_query(class_name, schemas[schema], question, db_client, prompt, rag)
     
     # Print the generated query or explanation
     print(result.text)
