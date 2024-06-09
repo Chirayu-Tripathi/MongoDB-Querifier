@@ -1,10 +1,13 @@
-# MongoDB-Querifier
+# MongoDB-Querifier [Live Link](https://querifier.streamlit.app/)
 <p align="center">
 <img src="images/workflow.png?raw=true" alt="GPT-Architecture" width="800"/>
 </p>
 
 Improve LLMs MongoDB query generation ability with the help of advanced retrieval augmented generation.
 This project demonstrates a sophisticated approach for improving the generated MongoDB queries from natural language questions using the Large Language Models. It leverages state-of-the-art technologies in natural language processing, vector databases, and advanced retrieval augmented generation to create an efficient and accurate query generation pipeline. It also showcases the use of Weaviate, an open-source vector database, for efficient retrieval of similar questions and their corresponding MongoDB queries.
+
+## Challenge 1 (Create a workflow with Weaviate and our technology partners), 2.1 (Build a front-end or presentation for your workflow) and 2.2 (Outline a potential growth pipeline) workflow is explained in detail in the following [notebook](./notebook/workflow.ipynb).
+
 
 **Overview**
 The project consists of five main components:
@@ -15,7 +18,7 @@ The project consists of five main components:
 4. query_generation.py: Module for generating MongoDB queries using the Gemini Pro model.
 5. weavite_vector_db.py: Weaviate client for vector database operations.
 
-It also contains a [jupyter notebook](./notebook.ipynb) which gives the full walkthrough of the code and how to use it.
+It also contains a [jupyter notebook](./notebook/workflow.ipynb) which gives the full walkthrough of the code and how to use it.
 
 **Prerequisites**
 
@@ -87,10 +90,35 @@ Retrieval-Augmented Generation significantly improves query generation:
  * It handles complex or uncommon queries better by finding relevant past examples.
  * It adapts to the nuances of each question, leading to more accurate and efficient queries.
 
-In the provided example from the notebook, RAG correctly generates { $expr: { $gt: [{ $strLenCP: "$body" }, 50] } }, understanding that $strLenCP is needed for string length. Without RAG, it incorrectly uses { body: { $gt: 50 } }, treating body as a number instead of string.
+Consider the following question: *Find all the "Sci-Fi" related posts written by Chirayu with post length longer than 50 characters*, 
+ 
+```python
+LLM enabled with RAG correctly generates
+
+db.posts.find({
+  $and: [
+    { tags: "Sci-Fi" },
+    { author: "Chirayu" },
+    { $expr: { $gt: [{ $strLenCP: "$body" }, 50] } }
+  ]
+}), 
+understanding that $strLenCP is needed for string length, the reason behind this generation is the use of relevant question-query-schema pairs fetched from the vector store. 
+
+While the LLM Without RAG, incorrectly generates 
+ 
+ { $and: [
+    { tags: { $in: ["Sci-Fi"] } },
+    { author: "Chirayu" },
+    { body: { $gt: 50 } }
+  ]
+}
+, treating body as a number instead of string.
+```
+
 
 **Future Scope**
-Need to check how this method performs with LLMs fine-tuned on MongoDB question-answer pairs, test this proces on fine-tuned Phi-2 from [nl2query](https://github.com/Chirayu-Tripathi/nl2query)
+
+Need to check how this method performs with LLMs fine-tuned on MongoDB question-answer pairs, test this process on fine-tuned Phi-2 from [nl2query](https://github.com/Chirayu-Tripathi/nl2query)
 
 **License**
 
