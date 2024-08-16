@@ -1,12 +1,10 @@
-# MongoDB-Querifier [Live Link](https://querifier.streamlit.app/)
+# MongoDB-Querifier
 <p align="center">
 <img src="images/workflow.png?raw=true" alt="GPT-Architecture" width="800"/>
 </p>
 
 Improve LLMs MongoDB query generation ability with the help of advanced retrieval augmented generation.
 This project demonstrates a sophisticated approach for improving the generated MongoDB queries from natural language questions using the Large Language Models. It leverages state-of-the-art technologies in natural language processing, vector databases, and advanced retrieval augmented generation to create an efficient and accurate query generation pipeline. It also showcases the use of Weaviate, an open-source vector database, for efficient retrieval of similar questions and their corresponding MongoDB queries.
-
-## Challenge 1 (Create a workflow with Weaviate and our technology partners), 2.1 (Build a front-end or presentation for your workflow) and 2.2 (Outline a potential growth pipeline) workflow is explained in detail in the following [notebook](./notebook/workflow.ipynb).
 
 
 **Overview**
